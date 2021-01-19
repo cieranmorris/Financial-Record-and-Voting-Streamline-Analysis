@@ -1,4 +1,5 @@
 print("Hello from PyPoll!")
 
-a = 27 
-print("Here is the value of a: {a}")
+#import module and csv reader
+import os
+import csv
