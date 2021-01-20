@@ -17,8 +17,8 @@ with open(csvpath) as csvfile:
     print(f"CSV Header: {csv_header}")
 
     #count total number of months in CSV
-    count = len(list(csvreader))
-    print(count)
+    total_months = len(list(csvreader))
+    print(total_months)
      
 
      #net total amount of Profit/Losses over the entire period
@@ -35,4 +35,15 @@ with open(csvpath) as csvfile:
 
      #greates decrease in losses (date and amount) over entire period
 
-     
+
+
+
+     #print("Financial Analysis")
+     #print("-----------------------------")
+
+     #print("Total Months: ")
+     #print("Total: ")
+     #print("Average Change: ")
+     #print("Greatest Increase in Profits: ")
+     #print("Greatest Decrease in Profits")
+
