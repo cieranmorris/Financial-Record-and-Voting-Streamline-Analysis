@@ -5,27 +5,24 @@ import os
 import csv
 
 
-csvpath = os.path.join("Resources", "budget_data.csv")
-print(csvpath)
+budget_data_csv = os.path.join("Resources", "budget_data.csv")
+print(budget_data_csv)
 
 #Lists to store data
 total_months = []
-net_total = []
-profit_loss_changes = []
-average_change = []
-profit_increase = []
-loss_decrease = []
+total_amount = []
 
-with open(csvpath) as csvfile:
-    csvreader = csv.reader(csvfile, delimiter= ",")
 
-    print(csvreader)
+with open(budget_data_csv) as csvfile:
+    budget_data = csv.reader(csvfile, delimiter= ",")
 
-    csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+    print(budget_data)
+
+    csv_header = next(budget_data)
+    print(f"CSV Header: {budget_data}")
 
     #count total number of months in CSV
-    total_months = len(list(csvreader))
+    total_months = len(list(budget_data))
     print(total_months)
      
     total = 0
@@ -36,9 +33,10 @@ with open(csvpath) as csvfile:
     for row in csvreader:
          #total Profit/Losses in column 1
          #get Profit/losses into a python list
+        total_amount.append(row[1])
+        total_amount = int(row[1])
+        net_total = net_total + total
 
-        total_profit_loss = int(row[1])
-        net_total = total_profit_loss + total
         print(net_total)
 
 
@@ -50,11 +48,31 @@ with open(csvpath) as csvfile:
      #Averages of changes
 
 
+    # def average(profit_loss_change):
+        
+    #     length = len(profit_loss_change)
+    #     total = 0.0
+
+    #     for number in profit_loss_change:
+    #         total += number
+        
+    #     return total / length
+
+
+
+
+
      #greatest increase in profits (date & amount) over entire period
+
+        # max_profit = list[]
+        # max_profit = max()
+        # print(max_profit)
 
      #greates decrease in losses (date and amount) over entire period
 
-
+       min_profit = list[]
+       min_profit = min()
+       print(min_profit)
 
 
      #print("Financial Analysis")
