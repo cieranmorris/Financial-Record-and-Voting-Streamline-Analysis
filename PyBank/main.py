@@ -8,6 +8,14 @@ import csv
 csvpath = os.path.join("Resources", "budget_data.csv")
 print(csvpath)
 
+#Lists to store data
+total_months = []
+net_total = []
+profit_loss_changes = []
+average_change = []
+profit_increase = []
+loss_decrease = []
+
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter= ",")
 
@@ -20,8 +28,19 @@ with open(csvpath) as csvfile:
     total_months = len(list(csvreader))
     print(total_months)
      
+    total = 0
+   
 
      #net total amount of Profit/Losses over the entire period
+
+    for row in csvreader:
+         #total Profit/Losses in column 1
+         #get Profit/losses into a python list
+
+        total_profit_loss = int(row[1])
+        net_total = total_profit_loss + total
+        print(net_total)
+
 
 
      #Changes in Profit/Losses over entire period 
@@ -41,8 +60,8 @@ with open(csvpath) as csvfile:
      #print("Financial Analysis")
      #print("-----------------------------")
 
-     #print("Total Months: ")
-     #print("Total: ")
+     #print("Total Months: {total_months}")
+     #print("Total: {net_total}")
      #print("Average Change: ")
      #print("Greatest Increase in Profits: ")
      #print("Greatest Decrease in Profits")
