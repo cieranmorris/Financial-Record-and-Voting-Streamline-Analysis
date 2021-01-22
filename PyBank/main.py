@@ -30,13 +30,13 @@ with open(budget_data_csv) as csvfile:
     #count total number of months in CSV
     #total_months = len(list(budget_data)) -- Farshad said don't use
 
-total_months =0
+   total_months =0
    for row in budget_data:
        total_months = total_months + 1
        print(total_months)
 
      #net total amount of Profit/Losses over the entire period
-total = 0
+   total = 0
    for row in budget_data:
          #total Profit/Losses in column 1
          #get Profit/losses into a python lists you created
@@ -45,7 +45,7 @@ total = 0
          profit_loss.append(int(row[1]))
 
          #calculate the total
-net_total_amount = 0
+   net_total_amount = 0
    for x in profit_loss:
            net_total_amount = x + net_total_amount
            print(net_total_amount)
@@ -62,9 +62,9 @@ net_total_amount = 0
      #Averages of changes
      average_profit_changes = average(profit_change)
      print(average_profit_changes)
-     
 
 
+    # see if this code section is necessary at this point?
     # def average(profit_loss_change):
         
     #     length = len(profit_loss_change)
@@ -81,23 +81,23 @@ net_total_amount = 0
 
      #greatest increase in profits (date & amount) over entire period
 
-        # max_profit = list[]
-        # max_profit = max()
-        # print(max_profit)
+        max_profit = list[]
+        max_profit = max(profit_change)
+        print(max_profit)
 
      #greates decrease in losses (date and amount) over entire period
 
-       #min_profit = list[]
-       #min_profit = min()
-       #print(min_profit)
+       min_profit = list[]
+       min_profit = min(profit_change)
+       print(min_profit)
 
 
-     #print("Financial Analysis")
-     #print("-----------------------------")
+     print("Financial Analysis")
+     print("-----------------------------")
 
-     #print("Total Months: {total_months}")
-     #print("Total: {net_total}")
-     #print("Average Change: ")
-     #print("Greatest Increase in Profits: ")
-     #print("Greatest Decrease in Profits")
+     print("Total Months: {total_months}")
+     print("Total: {net_total_amount}")
+     print("Average Change: {average_profit_changes}")
+     print("Greatest Increase in Profits: {max_profit}")
+     print("Greatest Decrease in Profits: {min_profit}")
 
