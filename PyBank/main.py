@@ -31,13 +31,13 @@ with open(budget_data_csv) as csvfile:
     #total_months = len(list(budget_data)) -- Farshad said don't use
 
 total_months =0
-for row in budget_data:
+   for row in budget_data:
        total_months = total_months + 1
        print(total_months)
 
      #net total amount of Profit/Losses over the entire period
 total = 0
-for row in budget_data:
+   for row in budget_data:
          #total Profit/Losses in column 1
          #get Profit/losses into a python lists you created
          total_months.append(row[0])
@@ -46,19 +46,23 @@ for row in budget_data:
 
          #calculate the total
 net_total_amount = 0
-for x in profit_loss:
+   for x in profit_loss:
            net_total_amount = x + net_total_amount
            print(net_total_amount)
 
 
 
-     #Changes in Profit/Losses over entire period 
+     #Changes in Profit/Losses over entire period
+     profit_change = [profit_loss[x + 1]] - profit_loss[x] for x in range(0, len(profit_loss)-1)]
 
-     
+
 
 
 
      #Averages of changes
+     average_profit_changes = average(profit_change)
+     print(average_profit_changes)
+     
 
 
     # def average(profit_loss_change):
