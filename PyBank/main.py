@@ -1,8 +1,8 @@
-print("Hello from PyBank!")
 
-#import module and csv reader
+#import modules and path to files
 import os
 import csv
+import statistics as average
 
 
 budget_data_csv = os.path.join("Resources", "budget_data.csv")
@@ -11,37 +11,50 @@ print(budget_data_csv)
 #Lists to store data
 total_months = []
 total_amount = []
+profit_loss = []
+profit_change = []
 
+#average function for profit_change
+def Average(myList):
+   return(avg.mean(myList))
 
+#create csvreader for file   
 with open(budget_data_csv) as csvfile:
     budget_data = csv.reader(csvfile, delimiter= ",")
 
-    print(budget_data)
+    #print(budget_data)
 
     csv_header = next(budget_data)
     print(f"CSV Header: {budget_data}")
 
     #count total number of months in CSV
-    total_months = len(list(budget_data))
-    print(total_months)
-     
-    total = 0
-   
+    #total_months = len(list(budget_data)) -- Farshad said don't use
+
+total_months =0
+for row in budget_data:
+       total_months = total_months + 1
+       print(total_months)
 
      #net total amount of Profit/Losses over the entire period
-
-    for row in csvreader:
+total = 0
+for row in budget_data:
          #total Profit/Losses in column 1
-         #get Profit/losses into a python list
-        total_amount.append(row[1])
-        total_amount = int(row[1])
-        net_total = net_total + total
+         #get Profit/losses into a python lists you created
+         total_months.append(row[0])
 
-        print(net_total)
+         profit_loss.append(int(row[1]))
+
+         #calculate the total
+net_total_amount = 0
+for x in profit_loss:
+           net_total_amount = x + net_total_amount
+           print(net_total_amount)
 
 
 
      #Changes in Profit/Losses over entire period 
+
+     
 
 
 
@@ -70,9 +83,9 @@ with open(budget_data_csv) as csvfile:
 
      #greates decrease in losses (date and amount) over entire period
 
-       min_profit = list[]
-       min_profit = min()
-       print(min_profit)
+       #min_profit = list[]
+       #min_profit = min()
+       #print(min_profit)
 
 
      #print("Financial Analysis")
