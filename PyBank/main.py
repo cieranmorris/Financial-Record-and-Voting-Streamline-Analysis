@@ -19,85 +19,80 @@ def Average(myList):
    return(avg.mean(myList))
 
 #create csvreader for file   
-with open(budget_data_csv) as csvfile:
-    budget_data = csv.reader(csvfile, delimiter= ",")
+with open(budget_data_csv, newline = "", encoding = "ISO-8859-1") as csvfile:
+  budget_data = csv.reader(csvfile, delimiter= ",")
 
-    #print(budget_data)
+  #print(budget_data)
 
-    csv_header = next(budget_data)
-    print(f"CSV Header: {budget_data}")
+  csv_header = next(budget_data)
+  print(f"CSV Header: {budget_data}")
 
-    #count total number of months in CSV
-    #total_months = len(list(budget_data)) -- Farshad said don't use
+#count total number of months in CSV
+#net total amount of Profit/Losses over the entire period
 
-   total_months =0
-   for row in budget_data:
-       total_months = total_months + 1
-       print(total_months)
-
-     #net total amount of Profit/Losses over the entire period
-   total = 0
-   for row in budget_data:
-         #total Profit/Losses in column 1
-         #get Profit/losses into a python lists you created
-         total_months.append(row[0])
-
-         profit_loss.append(int(row[1]))
-
-         #calculate the total
-   net_total_amount = 0
-   for x in profit_loss:
-           net_total_amount = x + net_total_amount
-           print(net_total_amount)
+#Define variables
+  month = 0
+  total_months =0 
+  net_total_amount = 0
+  current_row = 0
+  previous_row = 0
+  monthly_change = 0
+  initial_loop = 0
+  greatest_increase = 0
+  greatest_decrease = 0
 
 
+  for row in budget_data:
+      total_months = total_months + 1
+      print(row[1])
+      net_total_amount = net_total_amount + int(row[1])
 
-     #Changes in Profit/Losses over entire period
-     profit_change = [profit_loss[x + 1]] - profit_loss[x] for x in range(0, len(profit_loss)-1)]
+      #append calculations to lists  
+      # total_months.append(row[0])
+      # profit_loss.append(int(row[1]))
 
 
 
+  #Changes in Profit/Losses over entire period
+      current_row = int(row[1])
+      if initial_loop == False:
+        monthly_change = current_row - previous_row
 
 
-     #Averages of changes
-     average_profit_changes = average(profit_change)
-     print(average_profit_changes)
+#   # see if this code section is necessary at this point?
+#   # def average(profit_loss_change):
+      
+#   #     length = len(profit_loss_change)
+#   #     total = 0.0
 
-
-    # see if this code section is necessary at this point?
-    # def average(profit_loss_change):
-        
-    #     length = len(profit_loss_change)
-    #     total = 0.0
-
-    #     for number in profit_loss_change:
-    #         total += number
-        
-    #     return total / length
+#   #     for number in profit_loss_change:
+#   #         total += number
+      
+#   #     return total / length
 
 
 
 
 
-     #greatest increase in profits (date & amount) over entire period
+#   #greatest increase in profits (date & amount) over entire period
 
-        max_profit = list[]
-        max_profit = max(profit_change)
-        print(max_profit)
+# max_profit = list[]
+# max_profit = max(profit_change)
+# print(max_profit)
 
-     #greates decrease in losses (date and amount) over entire period
+# #greates decrease in losses (date and amount) over entire period
 
-       min_profit = list[]
-       min_profit = min(profit_change)
-       print(min_profit)
+# min_profit = list[]
+# min_profit = min(profit_change)
+# print(min_profit)
 
 
-     print("Financial Analysis")
-     print("-----------------------------")
+print("Financial Analysis")
+print("-----------------------------")
+print(f' net_total_amount {net_total_amount}')
+print(f' total_months {total_months}')
 
-     print("Total Months: {total_months}")
-     print("Total: {net_total_amount}")
-     print("Average Change: {average_profit_changes}")
-     print("Greatest Increase in Profits: {max_profit}")
-     print("Greatest Decrease in Profits: {min_profit}")
+# print("Average Change: {average_profit_changes}")
+# print("Greatest Increase in Profits: {max_profit}")
+# print("Greatest Decrease in Profits: {min_profit}")
 
