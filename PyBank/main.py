@@ -6,7 +6,7 @@ import statistics as avg
 
 
 budget_data_csv = os.path.join("Resources", "budget_data.csv")
-print(budget_data_csv)
+#print(budget_data_csv)
 
 #Lists to store data
 total_months_change = []
