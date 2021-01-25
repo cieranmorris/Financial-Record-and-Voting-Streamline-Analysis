@@ -78,46 +78,10 @@ with open(budget_data_csv) as csvfile:
   #calculate average monthly changes
   avg = Average(total_months_change)
 
-
-
-    #append calculations to lists  
-    # total_months.append(row[0])
-    # profit_loss.append(int(row[1]))
-
-
-
-  #Changes in Profit/Losses over entire period
-  # current_row = int(row[1])
-  # if initial_loop == False:
-  #   monthly_change = current_row - previous_row
-#     profit_change =[profit_loss[x +1] - profit_loss[x] for x in range(0, len(proft_loss) - 1)]
-
-# #   #greatest increase in profits (date & amount) over entire period
-#   if greatest_increase < monthly_change:
-#       greatest_increase = monthly_change
-#       greatest_increase_month = row[0]
-
-# # #greates decrease in losses (date and amount) over entire period
-#   if greatest_decrease > monthly_change:
-#       greatest_decrease = monthly_change
-#       greatest_decrease_month = row[0]
-
-
-#   previous_row = current_row
-#   total_change = total_price_change + monthly_change
-
-#   initial_loop = False
-#   average_profit_changes = round(total_change/(total_months -1), 2)
-#   # def Average(total_price_change):
-#   #   avg = mean(total_price_change)
-#   #   return avg
-
-#   # average = Average(total_price_change)
-
 print("Financial Analysis")
 print("-----------------------------")
-print(f' net_total_amount {net_total_amount}')
-print(f' total_months {total_months}')
+print(f' Total Months: {total_months}')
+print(f' Total: {net_total_amount}')
 print(f"Average Change: {avg}")
 print(f"Greatest Increase in Profits: {greatest_increase_month} ({greatest_increase})")
 print(f"Greatest Decrease in Profits: {greatest_decrease_month} ({greatest_decrease})")
