@@ -13,7 +13,6 @@ total_votes_cast = []
 
 #Define variables and set initial values
 total_votes = 0
-popular_vote = 0
 winner = ""
 winners_votes = 0
 
@@ -47,3 +46,33 @@ with open (election_data_csv, newline = "", encoding = "ISO-8859-1") as csvfile:
 
         #as for loop finds associated names for individual candidates, add 1
         individual_candidate_votes[individual_candidate] = individual_candidate_votes[individual_candidate] + 1
+
+
+        #associate votes to tallied individual candidate names - for loop?
+    for x in individual_candidate_votes:
+        votes_per_candidate = individual_candidate_votes.get(x)
+
+        #calculate % of each candidates' votes / total votes
+        percent = float(individual_candidate_votes) / float(total_votes) *100
+        #print(percent)
+
+        #\n to break for loop because data file is so large
+        #believe I need multiple dictionaries for a singular result output
+        percent_results = (f"{x}: {percentage:.3f}% ({individual_votes})\n")
+
+
+
+
+
+
+
+
+
+# print("Election Results")
+# print("---------------------------")
+# print(f"Total Votes: {total_votes}")
+# print("---------------------------")
+# print("")
+
+
+
