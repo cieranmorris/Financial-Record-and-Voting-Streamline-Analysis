@@ -18,34 +18,32 @@ winner = ""
 winners_votes = 0
 
 #create a dictionary of lists for the candidate names and votes?
-inidividual_candidate_votes = {}
+individual_candidate_votes = {}
 
 #csvreader to read csv file
 with open (election_data_csv, newline = "", encoding = "ISO-8859-1") as csvfile:
-    election_data = csv.reader(election_data_csv, delimiter = ",")
+    election_data = csv.reader(csvfile, delimiter = ",")
     #print(election_data)
 
     #skip header row in csv file
     csv_header = next(election_data)
-    print(f"CSV Header: {csv_header}")
+    #print(f"CSV Header: {csv_header}")
 
 
     #total number of votes cast - add up # of voter IDs
     #need to convert voter IDs into individual numerical values?
     for row in election_data:
-        total_votes_cast = total_votes_cast + 1
-        print(total_votes_cast)
-
+        total_votes += 1
+       
         #assign individual candidate ID for for each row, starting in Row 2
         individual_candidate = row[2]
 
         #if statement for if the candidate names' do/don't match
         if individual_candidate not in candidate_list:
-            
-   
+            candidate_list.append(individual_candidate)
 
-    
+            #set dictionary value to zero for the for loop
+            individual_candidate_votes[individual_candidate] = 0
 
-
-
-#print(f" Total Votes: {total_votes_cast}")
+        #as for loop finds associated names for individual candidates, add 1
+        individual_candidate_votes[individual_candidate] = individual_candidate_votes[individual_candidate] + 1
