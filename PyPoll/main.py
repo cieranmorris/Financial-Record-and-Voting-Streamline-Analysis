@@ -53,13 +53,28 @@ with open (election_data_csv, newline = "", encoding = "ISO-8859-1") as csvfile:
         votes_per_candidate = individual_candidate_votes.get(x)
 
         #calculate % of each candidates' votes / total votes
-        percent = float(individual_candidate_votes) / float(total_votes) *100
+        percent = float(votes_per_candidate) / float(total_votes) * 100
         #print(percent)
 
         #\n to break for loop because data file is so large
         #believe I need multiple dictionaries for a singular result output
-        percent_results = (f"{x}: {percentage:.3f}% ({individual_votes})\n")
+        percent_results = (f"{x}: {percent:.3f}% ({individual_candidate_votes})\n")
 
+        #print results
+        #print(percent_results)
+
+
+        #find the winner based on popular vote
+        if votes_per_candidate > winners_votes:
+            winners_votes = votes_per_candidate
+            winner = x
+    
+with open(save_file, "w") as txtfile:
+    summary_table = (f"Election Results\n")
+    f"-------------------------\n"
+    f"Total Votes {total_votes}\n"
+    f"-------------------------\n"
+print(summary_table)
 
 
 
