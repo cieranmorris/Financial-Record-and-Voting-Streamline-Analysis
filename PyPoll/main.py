@@ -33,6 +33,8 @@ with open (election_data_csv, newline = "", encoding = "ISO-8859-1") as csvfile:
     #need to convert voter IDs into individual numerical values?
     for row in election_data:
         total_votes += 1
+
+
        
         #assign individual candidate ID for for each row, starting in Row 2
         individual_candidate = row[2]
@@ -46,7 +48,22 @@ with open (election_data_csv, newline = "", encoding = "ISO-8859-1") as csvfile:
 
         #as for loop finds associated names for individual candidates, add 1
         individual_candidate_votes[individual_candidate] = individual_candidate_votes[individual_candidate] + 1
+output = (
+    f"Election Results\n"
+    f"----------------------------\n"
+    f"Total Votes: {total_votes}\n"
+    f"----------------------------\n")
+print(output)
+#create text file for information
+with open(save_file, "w") as txt_file:
+    # summary_table =(
 
+    # f"-------------------------\n"
+    # f"Total Votes {total_votes}\n"
+    # f"-------------------------\n")
+    # print(summary_table)
+
+    txt_file.write(output)
 
         #associate votes to tallied individual candidate names - for loop?
     for x in individual_candidate_votes:
@@ -58,10 +75,13 @@ with open (election_data_csv, newline = "", encoding = "ISO-8859-1") as csvfile:
 
         #\n to break for loop because data file is so large
         #believe I need multiple dictionaries for a singular result output
-        percent_results = (f"{x}: {percent:.3f}% ({individual_candidate_votes})\n")
+        percent_results = (f"{x}: {percent:.3f}% ({votes_per_candidate})\n")
 
         #print results
-        #print(percent_results)
+        print(percent_results)
+
+        #sumbit to text file 
+        txt_file.write(percent_results)
 
 
         #find the winner based on popular vote
@@ -69,25 +89,18 @@ with open (election_data_csv, newline = "", encoding = "ISO-8859-1") as csvfile:
             winners_votes = votes_per_candidate
             winner = x
     
-with open(save_file, "w") as txtfile:
-    summary_table = (f"Election Results\n")
-    f"-------------------------\n"
-    f"Total Votes {total_votes}\n"
-    f"-------------------------\n"
-print(summary_table)
+
+    # print("Election Results")
+    # print("---------------------------")
+    # print(f"Total Votes: {total_votes}")
+    # print("---------------------------")
+    winners_name = (f"---------------------\n"
+    f"Winner: {winner}\n"
+    f"---------------------\n")
+    print(winners_name)
 
 
-
-
-
-
-
-
-# print("Election Results")
-# print("---------------------------")
-# print(f"Total Votes: {total_votes}")
-# print("---------------------------")
-# print("")
+    txt_file.write(winners_name)
 
 
 
